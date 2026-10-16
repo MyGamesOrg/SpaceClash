@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Voidward Command</title>
+  <defs>
+    <linearGradient id="space" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#10283c"/>
+      <stop offset="1" stop-color="#07111e"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#space)"/>
+  <circle cx="32" cy="32" r="23" fill="none" stroke="#77c8e5" stroke-width="2" opacity=".9"/>
+  <path d="M32 12 43 35 32 30 21 35Z" fill="#e8f5ff" stroke="#78c8e9" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M21 35 14 45l18-8 18 8-7-10-11-5Z" fill="#3b7797" stroke="#a7d9ee" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="m28 38 4 14 4-14" fill="#eab66b"/>
+  <circle cx="48" cy="17" r="3" fill="#eab66b"/>
+  <circle cx="15" cy="20" r="1.5" fill="#ffffff" opacity=".85"/>
+</svg>
