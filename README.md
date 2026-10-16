@@ -2,7 +2,9 @@
 
 A browser-based 3D space-base strategy prototype built with JavaScript, Three.js and WebGL. Build and upgrade a base, manage an original procedural fleet, defend against raids and attack outposts.
 
-**Status:** Prelaunch cleanup on a review branch. Not yet deployed or independently regression-tested after this asset change.
+**[Play Voidward Command](https://mygamesorg.github.io/SpaceClash/)**
+
+**Status:** Public portfolio prototype, deployed on GitHub Pages. Basic gameplay and manual save/load have been checked by the developer; cross-device regression testing is still pending.
 
 ## Run locally
 
@@ -43,7 +45,9 @@ On Windows, `start-game.bat` is also provided. Do not open `index.html` directly
 
 ## Deployment
 
-The current app is static with no build step. It can be served on GitHub Pages or Cloudflare Pages after browser testing. Use relative asset URLs when hosted under a repository subpath.
+Live site: **https://mygamesorg.github.io/SpaceClash/** (GitHub Pages, `main` branch, repository root). The app is static and has no build step. Assets use relative URLs so the game works under the `/SpaceClash/` project path.
+
+The two licensed nebula GLB backgrounds are about 2.4 MB and 4.9 MB. The game displays a lightweight original background while the detailed skybox loads; first visits can take longer on slow connections. Browser caching may make repeat visits faster.
 
 ## Important
 
