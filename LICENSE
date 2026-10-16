@@ -1,0 +1,27 @@
+Voidward Command — Original Project License
+
+Copyright (c) 2026 sugadev-collab. All rights reserved.
+
+This notice applies only to original source code, original artwork, original
+procedural 3D models, original textures, original UI and other original
+materials in this repository, to the extent the copyright holder owns
+the relevant rights.
+
+Permission is granted to access and play the officially published game.
+No permission is granted by this notice to copy, modify, redistribute,
+sublicense, sell, or repackage the original project code or original project
+assets without the copyright holder's prior written permission.
+
+THIRD-PARTY MATERIAL IS EXCLUDED.
+
+This repository includes components that remain under their own licenses:
+- Three.js and addons: MIT, see libs/LICENSE.txt.
+- Jungle Jim nebula skyboxes: CC BY 4.0, see ASSET-CREDITS.md and credits.html.
+
+Nothing in this notice restricts rights granted by those third-party
+licenses or claims ownership of third-party assets, names, or trademarks.
+
+THE ORIGINAL MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.
+
+Copyright-holder identifier: https://github.com/sugadev-collab

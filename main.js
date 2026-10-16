@@ -13,7 +13,7 @@ import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 // ============================================================
-//  STELLAR CLASH — big base + categorized build + settings (offline)
+//  VOIDWARD COMMAND — big base + categorized build + settings (offline)
 // ============================================================
 const ICON_PATHS={
   camp:"M3 20V8l9-5 9 5v12H3zm5 0v-8h8v8M3 8h18",

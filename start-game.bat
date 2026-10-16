@@ -1,6 +1,6 @@
 @echo off
 cd /d "%~dp0"
-echo STELLAR CLASH - Original Assets / Fleet Edition
+echo VOIDWARD COMMAND - Original Assets / Fleet Edition
 echo Open http://localhost:8000 after the server starts.
 echo Keep this window open while playing. Press Ctrl+C to stop.
 where py >nul 2>nul

@@ -1,11 +1,11 @@
-# Current asset provenance
+# Current asset provenance — Voidward Command
 
-This release supersedes the previous original-assets-only edition's conservative exclusion decision.
+The active fleet (Interceptor, Siege Bomber, Strike Cruiser and Sentinel Drone) uses the original procedural models in `enhancements/original-units.js`. The game's original building factory, textures, planets, asteroids, icons and generated audio remain in place.
 
-The two Jungle Jim skyboxes have now been verified as listed under CC BY 4.0 and restored with attribution, source links, license links and modification notices. See **ASSET-CREDITS.md** and the visible **credits.html** page for the current inventory and obligations.
+The two Jungle Jim nebula skyboxes remain in `assets/skyboxes/`, with CC BY 4.0 attribution, source URLs and change notices in `ASSET-CREDITS.md` and `credits.html`.
 
-Original asteroid geometry/textures, buildings, tier fittings, Sentinel Drone, original fallback troop meshes and custom fleet fittings, procedural fallback skies, planets, icons and audio remain original project work. Uploaded source GLBs were not overwritten.
+**Conservative prelaunch cleanup:** Quaternius ship and modular GLBs, adapted fleet exports and converted source files were removed from the current working tree because the applicable current/acquisition-time redistribution terms could not be fully resolved. The Git repository's historical commits may still contain the older assets; deletion from the latest tree does not erase history.
 
-The three other optimized CC BY models are supplied in a separate optional pack, not loaded by this game. The standard-licensed Fire Planet is not redistributed. This inventory is not a guarantee of legal clearance; the source licenses give no warranties regarding unrelated third-party rights.
+Three.js remains MIT-licensed. The root `LICENSE` is limited to original project material and does not apply to the third-party skyboxes or library.
 
-The active Interceptor, Siege Bomber and Strike Cruiser now use adapted CC0 Quaternius hulls with original fittings. Two CC0 modular parts are bundled and used. These third-party hulls are not claimed as original project geometry. See the full inventory in ASSET-CREDITS.md.
+This inventory is based on repository documentation, not a legal guarantee or independent binary provenance audit.

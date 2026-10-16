@@ -1,6 +1,6 @@
 # Building assets
 
-Original, stylized sci-fi architecture created for Stellar Clash. Generated locally; no external model pack is required.
+Original, stylized sci-fi architecture created for Voidward Command. Generated locally; no external model pack is required.
 
 ## Files
 
