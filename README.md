@@ -1,97 +1,50 @@
-# STELLAR CLASH — Quaternius Fleet / Licensed Skyboxes Edition
+# Voidward Command
 
-Standalone Three.js game, with no backend or build step. All runtime assets and libraries are local. This release restores the two uploaded Jungle Jim backgrounds under their verified, listed CC BY 4.0 licenses and includes visible attribution.
+A browser-based 3D space-base strategy prototype built with JavaScript, Three.js and WebGL. Build and upgrade a base, manage an original procedural fleet, defend against raids and attack outposts.
 
-## Run on Windows
+**Status:** Prelaunch cleanup on a review branch. Not yet deployed or independently regression-tested after this asset change.
 
-Extract into a **new folder**, open `stellar-clash`, run `start-game.bat` with Python installed, and visit **http://localhost:8000**. Alternatively run `py -m http.server 8000` or `python -m http.server 8000`. Keep the server window open. Do not double-click `index.html`: browser ES modules and GLB fetches need HTTP. Hard refresh if reusing the previous server address. On another port, use that port in the address.
+## Run locally
 
-## Backgrounds and credits
+Serve this folder over HTTP, then open http://localhost:8000/ :
 
-- **DEEP** uses Alien Space Nebula 2 (Skybox); **CORE** uses Alien Space Nebula 1 (Skybox), by **Jungle Jim (@jungle_jim)**, listed as **CC BY 4.0** on their source pages.
-- Optimized GLBs are included in `assets/skyboxes/`. Panorama resolution stays **4096×2048**. JPEG encoding is lossy, at high quality; source files were not overwritten. The unused CORE PBR channel was removed from its material binding.
-- Original geometry/layer transforms remain. Runtime normalization selects color/emissive maps, not the packed roughness image, strips embedded lights/cameras and uses opaque unlit interior materials. This avoids the prior wrong-material/blank-background failure.
-- Both skies load on demand and are cached. Token-based switching prevents a slower previous request from replacing the latest choice. Original procedural skies remain as backups if a GLB cannot load; a message identifies fallback use.
-- Settings → **ASSET CREDITS** opens `credits.html`. Keep this page, `ASSET-CREDITS.md` and the license/source links when distributing. No creator endorsement is implied. CC BY 4.0 permits commercial use/modification with credit, a license link and change notice; it does not require contacting the creator or give a universal IP warranty.
-
-## Separate client-side persistence
-
-All browser storage is isolated under `storage/`:
-
-```text
-storage/
-  browser-storage.js  # guarded read/write adapter; the only localStorage access
-  save-state.js       # snapshot serialization, validation, versions, preferences
+```powershell
+py -m http.server 8000
 ```
 
-`main.js` contains only the manual save/load buttons and application of validated data to the live scene. No storage API calls or JSON save serialization remain there. The adapter can later be replaced without coupling browser persistence to the rendering modules.
+On Windows, `start-game.bat` is also provided. Do not open `index.html` directly from the filesystem: browser modules and GLB asset fetches need HTTP.
 
-- SAVE BASE preserves energy, crystal, wave, building type/cell/level/HP, troop type/home/HP.
-- `stellar-clash` and version 3 remain unchanged; legacy version 1/2 interceptor saves still load. Invalid data is rejected **before** clearing the current base.
-- Sky selection, mute and volume are immediately persisted separately in `stellar-preferences`. The previous `stellar-sky` preference is migrated when new preferences are absent.
-- This is local browser storage, **not a backend/cloud account**, and manual saves are not autosaves. Clearing browser site data can erase saves. A different browser/profile/server origin (including port) has separate saves.
-- RESET BASE resets the active base/fleet but does not delete a saved snapshot. Preferences are independent of a base snapshot. No battle or temporary visual-effect state is saved.
+## Gameplay and storage
 
-## Reworked asteroids
+- 19 structure types with five visual tiers; fleet camps, workshops, upgrades and defenses.
+- Four troop classes: Interceptor, Siege Bomber, Sentinel Drone and Strike Cruiser.
+- Fleet hangar, combat simulations, attack/retreat, model galleries, and sound settings.
+- Manual SAVE BASE / LOAD BASE use browser localStorage. **No account, cloud save or multiplayer backend.**
+- Legacy save keys `stellar-clash`, `stellar-preferences` and `stellar-sky` are intentionally retained for compatibility after rebranding. Clearing browser site data can erase saves.
 
-`enhancements/asteroids.js` replaces the old neon-shard/ring planetoids:
+## Assets and licenses
 
-- Seeded, elongated, asymmetric boulders, with three real crater depressions/rims per rock.
-- Original basalt, iron-rich and granite-like multiscale surface/relief textures.
-- Small inset mineral specks rather than large glowing crystal cones; no billboard halos or orbital hoops.
-- Sparse rubble clusters drawn using instancing, and near/far geometry LOD for each boulder.
-- Slow drift/spin; decorative motion obeys reduced-motion settings.
+- Original procedural fleet meshes and original building models are used in this release.
+- The Quaternius GLB ships, modular pieces and adapted exports from the earlier prototype are **removed** from the current release while redistribution terms are clarified.
+- Two Jungle Jim nebula skyboxes remain under **CC BY 4.0** with source links, license links and modification notices in [ASSET-CREDITS.md](ASSET-CREDITS.md) and the visible [credits page](credits.html).
+- Three.js and its addons are MIT licensed; see [libs/LICENSE.txt](libs/LICENSE.txt).
+- The root [LICENSE](LICENSE) reserves rights only in the original project materials to the extent owned by `sugadev-collab`; it does not cover third-party components.
 
-Editable texture generator: `tools/generate-rock-textures.py` (optional developer dependency NumPy/Pillow; no runtime dependency).
+## Structure
 
-## Retained gameplay
+- `index.html` / `main.js`: application and gameplay
+- `enhancements/original-units.js`: original fleet meshes
+- `enhancements/units.js`: troop creation and public fleet descriptions
+- `models/building-factory.js`: original building geometry
+- `enhancements/skyboxes.js`: credited nebula backgrounds
+- `storage/`: local save validation and preferences
+- `fleet-gallery.html`, `model-gallery.html`, `credits.html`: supporting pages
+- `tests/`, `QA.md`: development tests and historical QA records
 
-19 live structure types have five visual tiers. Fleet Camp capacity, Builder Workshop availability, Interceptor/Siege Bomber/Sentinel Drone/Strike Cruiser training, the 3D hangar, dismissal, defense/offense and legacy saves remain supported. Camps do not train troops; Barracks/Starports unlock troop classes at levels 1/2/3/4. Troops cost 1/2/3/5 camp space respectively. Max camp space is 160; max builders is 12. Construction uses a short deployment animation; training and upgrades are instant. Dismissal has no refund.
+## Deployment
 
-`model-gallery.html` previews the 19 live models and tiers. `models/glb/` contains the original 17 base-level building exports only.
+The current app is static with no build step. It can be served on GitHub Pages or Cloudflare Pages after browser testing. Use relative asset URLs when hosted under a repository subpath.
 
-## Other uploaded GLBs
+## Important
 
-A **separate optional pack**, not loaded in this game's startup or battles, contains optimized CC BY 4.0 copies of the supplied Catfish Mech, Cool Alien Spaceship and Sci-Fi Materials GLB. Texture resolution is capped at 2048; color maps are JPEG-compressed; resized data/normal maps use lossless WebP encoding. Geometry, skinning and animation byte ranges are retained. It requires a loader with `EXT_texture_webp` support, which the included GLTFLoader and modern Chromium support. Close-up textures can differ from the original 4K maps; this is not a claim of zero quality loss or mesh decimation.
-
-The **Fire Planet** uses **Free Standard**, not CC BY. It is not redistributed as a raw model here because the standard license restricts stand-alone redistribution/extraction; the game's original procedural planets remain. The separately sold full material pack is not included.
-
-The spaceship creator asks for a project link for public/commercial uses. Sending one is recommended as a courtesy, though CC BY itself does not require notification. See `ASSET-CREDITS.md` for source links and changes.
-
-## QA and developer tools
-
-See `QA.md`, `tests/`, and JSON results in `test-artifacts/`. Browser tests require Node/Playwright and a local server; they are not runtime dependencies. Use `CHROMIUM_PATH` for your installed browser. To validate the separate asset pack, set `OPTIONAL_ASSETS_DIR` to its extracted folder before running `tests/browser-optimized-assets.cjs`.
-
-`tools/optimize-glb.py` documents the reproducible texture-first optimization. It asserts unchanged non-image buffer bytes and mesh/node/accessor/skin/animation definitions. The source uploads remain untouched. No external CDN/font/icon/audio dependency is used. Three.js remains MIT licensed; retain `libs/LICENSE.txt`. No project-wide license change was made.
-
-## Forward-cruise presentation and future backend boundary
-
-The base now feels like it is cruising toward an outbound waypoint. `enhancements/cruise.js` supplies passing dust, restrained star streaks, a distant navigation light and subtle underbase drive plumes. The asteroids drift through safe outer lanes. Decorative travel stops in reduced-motion mode.
-
-**The simulation does not translate the base or building cells.** Travel is a presentation effect, so saved placement coordinates and combat distances stay stable. It does not add a backend, navigation mission or actual destination arrival mechanic.
-
-Pure configuration and snapshot validation are separated from rendering:
-
-```text
-config/
-  game-rules.js       # grid, placement bounds and building definitions
-  unit-rules.js       # troop costs, HP, unlocks and combat stats
-storage/
-  browser-storage.js # browser-specific read/write adapter
-  snapshot-schema.js # pure versioned save validation; no DOM/Three.js/storage
-  save-state.js      # capture, serialization, migration and preference service
-```
-
-A future server can import the pure rules/schema without loading Three.js. The current adapter/service is synchronous because localStorage is synchronous. An asynchronous HTTP/IndexedDB adapter will also need `await` in the thin save/load UI handlers; it is not a drop-in synchronous network implementation. No endpoint/authentication/session system has been created. A real backend should be authoritative and validate purchases/combat, not blindly trust a browser snapshot.
-
-## Quaternius fleet edition
-
-Three active troop hulls now use adapted CC0 Quaternius models: **Aster interceptor / Striker**, **Kestrel siege bomber / Bob**, **Atlas strike cruiser / Imperial**. Stats, troop type IDs, unlocking, training, saved fleets and combat rules are unchanged. Sentinel remains original. The Aster is a customized existing hull, not a wholly original mesh.
-
-Open **http://localhost:8000/fleet-gallery.html** for the orbitable 3D fleet atelier with an **Export GLB** button. Complete assembled designs are also in `assets/quaternius/designs/`. Edit paint preparation in `tools/prepare-quaternius.py` and fittings in `enhancements/units.js`. The exporter embeds textures in each GLB.
-
-Only three chosen hulls and two modular parts are loaded, from local files. Ship textures are capped at 1024 and JPEG-compressed for this distant strategy-game view. Mesh geometry/UVs retained. Crates and vents add small decorative dock/workshop details; placement bounds remain unchanged. No whole modular interior or full pack is loaded.
-
-`enhancements/asset-library.js` preloads the local templates once before startup. Instances own geometry/materials and share textures; dismissal/reset does not dispose shared textures. If an asset is missing, the original procedural troop mesh is used; a console warning identifies the missing file. No external network download is needed at runtime.
-
-Official packs list CC0 and allow commercial use. Courtesy credits and source/modification notices are included on the visible credits page and in ASSET-CREDITS.md. Source uploads remain untouched. Existing CC BY skybox attribution still applies.
+This is a prototype, not a live multiplayer game. Browser storage is not authoritative or secure for future networked gameplay. Review [QA.md](QA.md) before release.

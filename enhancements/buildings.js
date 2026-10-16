@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import {assetInstance} from './asset-library.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createBuildingModel as original,MODEL_TYPES as originalTypes,MODEL_NAMES as originalNames} from '../models/building-factory.js';
 export const MODEL_TYPES=[...originalTypes,'camp','builder'];
@@ -12,13 +11,7 @@ export function createBuildingModel(type){
  const flag=new THREE.Mesh(new THREE.BoxGeometry(.65,.5,.04),steel);flag.position.set(0,1.85,.65);b.add(flag);
  const beam=new THREE.Mesh(new THREE.CylinderGeometry(.035,.035,.8,8),steel);beam.position.set(.35,1.7,.65);b.add(beam);
  }
- // Small owned CC0 dock details, within the existing horizontal bounds.
- if(['starport','storage','builder'].includes(type)){
-  const crate=assetInstance('crate');if(crate){crate.scale.setScalar(.38);if(type==='starport')crate.position.set(.8,.63,-.72);else crate.position.set(.96,.12,.96);b.add(crate);}
- }
- if(['barracks','builder','storage'].includes(type)){
-  const vent=assetInstance('vent');if(vent){vent.scale.setScalar(.55);vent.rotation.x=-Math.PI/2;if(type==='storage')vent.position.set(.82,1.515,0);else if(type==='builder')vent.position.set(0,.875,1.05);else vent.position.set(-.65,1.485,.4);b.add(vent);}
- }
+ // Original building geometry only; no third-party modular components.
  applyLevel(b,1);return b;
 }
 function release(g){const gs=new Set(),ms=new Set();g.traverse(o=>{if(o.geometry)gs.add(o.geometry);if(o.material)ms.add(o.material);});gs.forEach(x=>x.dispose());ms.forEach(x=>x.dispose());g.removeFromParent();}

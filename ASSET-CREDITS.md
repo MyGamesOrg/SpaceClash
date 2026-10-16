@@ -1,62 +1,30 @@
-# Third-party asset credits
+# Third-party asset credits — Voidward Command
 
-License verification date: 7 October 2026. Keep this file and the in-game Credits link in distributed copies. The original downloads remain unmodified outside this release folder.
+This release includes two CC BY 4.0 nebula skyboxes and Three.js (MIT). Keep this file and the in-game `credits.html` link when distributing the game. Attribution and changes below reflect the repository's documented source records; they do not constitute an independent guarantee of title or third-party rights.
 
-## Included and used backgrounds
+## Included skyboxes
 
-**Alien Space Nebula 2 (Skybox)** by **Jungle Jim (@jungle_jim)**
-- Creator: https://sketchfab.com/jungle_jim
+### Alien Space Nebula 2 (Skybox)
+- Creator: **Jungle Jim (@jungle_jim)** — https://sketchfab.com/jungle_jim
 - Source: https://sketchfab.com/3d-models/alien-space-nebula-2-skybox-a1c688c6e8164fd4ad5a7e56047e8b50
-- License: **Creative Commons Attribution 4.0 International (CC BY 4.0)** — https://creativecommons.org/licenses/by/4.0/
-- Changes: embedded panorama re-encoded as high-quality JPEG at the original 4096×2048 dimensions; runtime lighting/cameras disabled and materials normalized to an opaque unlit interior sky. Authored geometry and layer transforms retained.
+- License: **Creative Commons Attribution 4.0 International** — https://creativecommons.org/licenses/by/4.0/
+- Changes: panorama re-encoded as JPEG at original 4096×2048 resolution; runtime lights/cameras disabled; opaque unlit material; original geometry/layer transforms retained.
 
-**Alien Space Nebula 1 (Skybox)** by **Jungle Jim (@jungle_jim)**
-- Creator: https://sketchfab.com/jungle_jim
+### Alien Space Nebula 1 (Skybox)
+- Creator: **Jungle Jim (@jungle_jim)** — https://sketchfab.com/jungle_jim
 - Source: https://sketchfab.com/3d-models/alien-space-nebula-1-skybox-4a4e7aec37c04320a09ac4c7434b8810
 - License: **CC BY 4.0** — https://creativecommons.org/licenses/by/4.0/
-- Changes: embedded panorama re-encoded as high-quality JPEG at the original 4096×2048 dimensions; unused packed PBR sky channel removed; runtime lighting/cameras disabled and material normalized to an opaque unlit interior sky. Geometry retained.
+- Changes: panorama JPEG recompression at original 4096×2048; unused packed PBR channel removed; runtime lights/cameras disabled; opaque unlit material; geometry retained.
 
-## Separate optional optimized asset pack
+These skyboxes may be reused under their own CC BY 4.0 terms. No endorsement is implied.
 
-These are not loaded by the game. A separate pack supplies optimized copies of the uploaded, CC BY 4.0 models for future use; adding them to gameplay requires explicit integration. The license does not apply to any separately sold Gumroad/Blender pack not supplied here.
+## Third-party code
+- **Three.js r160 and addons** — MIT License; the notice is in `libs/LICENSE.txt`.
 
-**Cool Alien Spaceship by Jungle Jim** by **Jungle Jim (@jungle_jim)**
-- Source: https://sketchfab.com/3d-models/cool-alien-spaceship-by-jungle-jim-62918957e1fd4667b679259c95822c5e
-- License: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
-- Changes: texture resolution capped at 2048; color textures JPEG-recompressed; data textures lossless-WebP encoded after resizing. Geometry unchanged.
-- Courtesy request: the creator asks you to send a link if used in a public/commercial project. This is not a notification requirement in CC BY 4.0 itself; sending a link is recommended.
+## Removed from this release
+The previous release bundled adapted Quaternius spaceship and modular GLB assets. They have been removed from this working release pending clarification of applicable acquisition-time and redistribution terms. The game now uses its original procedural ship and building models. No Quaternius assets are required at runtime.
 
-**Catfish Mech low-poly (animated)** by **Jungle Jim (@jungle_jim)**
-- Source: https://sketchfab.com/3d-models/catfish-mech-low-poly-animated-ad9bc16464744935b1ac9b7768a17474
-- License: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
-- Changes: same texture optimization policy. Mesh data, rig/joints, skin weights and animation data retained byte-for-byte.
+Other optional Jungle Jim model packs and the separately licensed Fire Planet are **not included** in this repository's current release. Do not infer their licensing from the included skyboxes.
 
-**32 Sci-Fi Materials pack** by **Jungle Jim (@jungle_jim)**
-- Source: https://sketchfab.com/3d-models/32-sci-fi-materials-pack-da92fd5265024632a01c04902bedb30a
-- License: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
-- Changes: same texture optimization policy, applied only to the actual uploaded GLB. It is not the separately sold full 32-material pack.
-
-## Not redistributed
-
-**Fire Planet** by **WeSVa (@WSVideoCarta)** is listed under **Free Standard**, not CC BY 4.0. Source: https://sketchfab.com/3d-models/fire-planet-fa3ff413c802481b8a1a19fab164339b
-The standard license restricts stand-alone asset redistribution/extraction. To avoid shipping it in a downloadable raw asset pack or browser source bundle, it is not included here. The original procedural planets remain in the game.
-License terms: https://sketchfab.com/licenses
-
-## License reminders
-
-CC BY 4.0 permits commercial use and modifications with attribution, a license link and a change notice. Do not imply endorsement or add restrictions/DRM that prevent permitted reuse of the CC assets. Keep credits with optimized derivatives. Notification or separate permission is not required by CC BY 4.0; a thank-you/link is welcome. The license gives no warranties and does not clear unrelated trademark, privacy or other third-party rights. This inventory is not legal advice.
-
-Three.js r160 and addons: MIT; retain `libs/LICENSE.txt`. Original building/asteroid/troop/procedural assets and project code have not been re-licensed as part of this update.
-
-## Quaternius fleet and modular details (used in this game)
-
-- Creator: **Quaternius** — https://quaternius.com/
-- Ultimate Spaceships Pack: https://quaternius.com/packs/ultimatespaceships.html
-- Ultimate Modular Sci-Fi Pack: https://quaternius.com/packs/ultimatemodularscifi.html
-- Both official pages list **CC0 1.0 Universal**, permitting personal/commercial use, modification and redistribution without attribution or notification requirements: https://creativecommons.org/publicdomain/zero/1.0/
-- Voluntary credit retained; no creator endorsement or third-party rights warranty is implied.
-- Striker hull is used for Aster interceptor, with cyan-painted texture, original sensor spine, twin rail pods and heat vent. Bob is used for Kestrel siege bomber with original payload pods. Imperial is used for Atlas strike cruiser with original command fittings. Ship hull vertices, UVs and indices are retained. Textures resized 2048→1024 and JPEG Q92 compressed; materials adjusted. Exhaust and fittings are original project additions. These are **adaptations**, not wholly original hull designs.
-- Sentinel remains the original project drone. Game stats and unlock rules are unchanged.
-- Modular Crate and Vent 1 downloaded from the CC0 Godot mirror: https://github.com/Malcolmnixon/Quaternius-Modular-Scifi-Pack — conversion author Malcolm Nixon. Official Drive downloads returned quota-exceeded pages. Selected ArrayMesh resources converted to GLB with corrected winding, reconstructed face normals and simplified PBR colors; placed as dock/workshop decorations and an interceptor vent.
-- Local license texts: `assets/quaternius/LICENSE-spaceships.txt`, `assets/quaternius/LICENSE-modular.txt`.
-- Reproducible conversion: `tools/prepare-quaternius.py`; editable runtime design: `enhancements/units.js`; component resource sources: `assets/quaternius/source/`.
+## Rights reminder
+The root `LICENSE` covers only original material whose rights are held by the copyright holder. It does not relicense or restrict any MIT or CC BY 4.0 content. License records are not legal advice.
